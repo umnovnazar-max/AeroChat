@@ -288,6 +288,7 @@ height: 40px;
             transition: background 0.15s;
         }
         .contact-item:hover { background: rgba(62, 207, 142, 0.05); }
+        .contact-item.global-item { background: rgba(62, 207, 142, 0.08); border-bottom: 1px solid var(--panel-border); }
 
         .placeholder-area {
             flex: 1;
@@ -344,10 +345,30 @@ height: 40px;
             backdrop-filter: blur(6px);
             cursor: pointer;
             position: relative;
+            display: flex;
+            flex-direction: column;
         }
 
         .message.in { background: var(--msg-in); align-self: flex-start; border-bottom-left-radius: 2px; }
         .message.out { background: var(--msg-out); align-self: flex-end; border-bottom-right-radius: 2px; }
+
+        .msg-sender-info {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .msg-sender-avatar {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid var(--accent);
+        }
 
         .msg-meta {
             display: flex;
@@ -370,8 +391,7 @@ height: 40px;
             color: #3ecf8e;
             text-shadow: 0 0 5px rgba(62, 207, 142, 0.6);
         }
-
-        .chat-input-area {
+.chat-input-area {
             padding: 14px;
             background: var(--panel-bg);
             backdrop-filter: blur(12px);
@@ -392,7 +412,7 @@ height: 40px;
             background: rgba(14, 17, 22, 0.95);
             border: 1px solid var(--panel-border);
             border-radius: 12px;
-backdrop-filter: blur(15px);
+            backdrop-filter: blur(15px);
             box-shadow: 0 8px 30px rgba(0,0,0,0.9);
             z-index: 100;
             flex-direction: column;
@@ -506,7 +526,7 @@ backdrop-filter: blur(15px);
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
             width: 100vw;
-            height: 100vh;
+height: 100vh;
             background: rgba(0, 0, 0, 0.88);
             backdrop-filter: blur(8px);
             justify-content: center;
@@ -525,7 +545,7 @@ backdrop-filter: blur(15px);
             box-shadow: 0 15px 40px rgba(0,0,0,0.9), 0 0 20px rgba(62, 207, 142, 0.2);
             text-align: center;
             display: flex;
-flex-direction: column;
+            flex-direction: column;
             gap: 16px;
         }
 
@@ -645,7 +665,7 @@ flex-direction: column;
             border: 1px solid var(--panel-border);
             border-radius: 8px;
             padding: 10px 14px;
-            display: flex;
+display: flex;
             justify-content: space-between;
             align-items: center;
             cursor: pointer;
@@ -657,17 +677,18 @@ flex-direction: column;
             display: flex;
             align-items: center;
             gap: 10px;
-            min-width: 180px;
+            min-width: 200px;
             padding: 4px 0;
         }
         .audio-msg-container audio {
             width: 100%;
             height: 36px;
             outline: none;
+            border-radius: 6px;
         }
 
         @media (max-width: 768px) {
-#app-container { position: relative; width: 100vw; height: 100vh; }
+            #app-container { position: relative; width: 100vw; height: 100vh; }
             .sidebar { width: 100%; height: 100%; display: flex; }
             .placeholder-area { display: none !important; }
             .chat-area { width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: 10; }
@@ -685,7 +706,7 @@ flex-direction: column;
         <div id="loader-text" style="color: var(--accent); font-weight: 500; font-size: 13px;">Загрузка данных...</div>
     </div>
 
-    <!-- Защищенное Строгое Модальное Окно -->
+    <!-- Защищенное Модальное Окно -->
     <div id="secure-modal">
         <div class="secure-card">
             <h3 id="secure-modal-title" class="secure-title">Уведомление</h3>
@@ -694,7 +715,7 @@ flex-direction: column;
         </div>
     </div>
 
-    <!-- Модальное окно Соглашения и Всплывающих Уведомлений -->
+    <!-- Модальное окно Соглашения -->
     <div id="terms-modal">
         <div class="terms-card">
             <h3 class="terms-title">AeroChat Access</h3>
@@ -730,12 +751,12 @@ flex-direction: column;
                 <polygon points="130,140 180,110 250,150 180,220 110,260" fill="#1b1e26" stroke="#3ecf8e" stroke-width="1" opacity="0.7"/>
                 <polygon points="370,140 320,110 250,150 320,220 390,260" fill="#1b1e26" stroke="#3ecf8e" stroke-width="1" opacity="0.7"/>
                 <polygon points="150,190 210,195 190,225 140,210" fill="#090a0c" stroke="#3ecf8e" stroke-width="1.5"/>
-                <polygon points="350,190 290,195 310,225 360,210" fill="#090a0c" stroke="#3ecf8e" stroke-width="1.5"/>
+<polygon points="350,190 290,195 310,225 360,210" fill="#090a0c" stroke="#3ecf8e" stroke-width="1.5"/>
                 <polygon points="140,175 220,185 200,170 150,165" fill="#3ecf8e" opacity="0.9"/>
                 <polygon points="360,175 280,185 300,170 350,165" fill="#3ecf8e" opacity="0.9"/>
                 <polygon points="250,150 220,240 250,270 280,240" fill="#282d38" stroke="#3ecf8e" stroke-width="1.5"/>
                 <polygon points="250,290 170,280 130,310 220,310" fill="#111" stroke="#3ecf8e" stroke-width="1.5"/>
-<polygon points="250,290 330,280 370,310 280,310" fill="#111" stroke="#3ecf8e" stroke-width="1.5"/>
+                <polygon points="250,290 330,280 370,310 280,310" fill="#111" stroke="#3ecf8e" stroke-width="1.5"/>
                 <polygon points="180,335 250,345 320,335 250,365" fill="#08090b" stroke="#3ecf8e" stroke-width="1.5"/>
                 <polygon points="250,375 230,430 250,445 270,430" fill="#3ecf8e" opacity="0.8"/>
             </svg>
@@ -791,12 +812,12 @@ flex-direction: column;
                         </div>
                     </div>
                     <div style="display: flex; gap: 6px;">
-                        <button class="btn btn-transparent" style="padding: 6px 10px; font-size: 11px; width: auto;" onclick="openSettings()">Настройки</button>
+<button class="btn btn-transparent" style="padding: 6px 10px; font-size: 11px; width: auto;" onclick="openSettings()">Настройки</button>
                         <button class="btn btn-danger" style="padding: 6px 10px; font-size: 11px; width: auto;" onclick="logout()">Выход</button>
                     </div>
                 </div>
                 <div style="display: flex; gap: 8px;">
-<input type="text" id="search-input" class="input-field" placeholder="ID друга..." maxlength="6" oninput="this.value=this.value.replace(/[^0-9]/g,'')" style="padding: 8px 12px; font-size: 13px;" onkeypress="handleSearchKey(event)">
+                    <input type="text" id="search-input" class="input-field" placeholder="ID друга..." maxlength="6" oninput="this.value=this.value.replace(/[^0-9]/g,'')" style="padding: 8px 12px; font-size: 13px;" onkeypress="handleSearchKey(event)">
                     <button class="btn btn-transparent" style="padding: 0 14px; width: auto;" onclick="addContact()">+</button>
                 </div>
             </div>
@@ -850,12 +871,12 @@ flex-direction: column;
                     </button>
 
                     <button id="voice-record-btn" class="btn btn-transparent icon-btn" onclick="toggleVoiceRecord()">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
                             <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
                             <line x1="12" y1="19" x2="12" y2="23"></line>
                             <line x1="8" y1="23" x2="16" y2="23"></line>
-</svg>
+                        </svg>
                     </button>
 
                     <input type="file" id="chat-photo-input" accept="image/*" style="display: none;" onchange="sendPhotoMessage(event)">
@@ -906,6 +927,14 @@ flex-direction: column;
 
         const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
+        const GLOBAL_CHAT_ID = 'global';
+        const GLOBAL_CHAT_PROFILE = {
+            id: GLOBAL_CHAT_ID,
+            name: '🌐 Глобальный чат',
+            avatar: '',
+last_seen: new Date().toISOString()
+        };
+
         let currentUser = null;
         let activeChatId = null;
         let contacts = [];
@@ -914,13 +943,15 @@ flex-direction: column;
         let heartbeatInterval = null;
         let activeRealtimeChannel = null;
         let knownMessageIds = new Set();
+        let renderedMessageState = {}; 
 
         let mediaRecorder = null;
         let audioChunks = [];
+        let mediaStream = null;
         let isRecording = false;
 
         const EMOJI_LIST = [
-"😀","😃","😄","😁","😆","😅","😂","🤣","🥲","☺️","😊","😇","🙂","🙃","😉","😌","😍","🥰","😘","😗","😙","😚","😋","😛","😝","😜","🤪","🤨","🧐","🤓","😎","🥸","🤩","🥳","😏","😒","😞","😔","😟","😕","🙁","☹️","😣","😖","😫","😩","🥺","😢","😭","😤","😠","😡","🤬","🤯","😳","🥵","🥶","😱","😨","😰","😥","😓","🤗","🤔","🤭","🤫","🤥","😶","😐","😑","😬","🙄","😯","😦","😧","😮","😲","🥱","😴","🤤","😪","😵","🤐","🥴","🤢","🤮","🤧","😷","🤒","🤕","🤑","🤠","😈","👿","👹","👺","🤡","💩","👻","💀","☠️","👽","👾","🤖","🎃",
+            "😀","😃","😄","😁","😆","😅","😂","🤣","🥲","☺️","😊","😇","🙂","🙃","😉","😌","😍","🥰","😘","😗","😙","😚","😋","😛","😝","😜","🤪","🤨","🧐","🤓","😎","🥸","🤩","🥳","😏","😒","😞","😔","😟","😕","🙁","☹️","😣","😖","😫","😩","🥺","😢","😭","😤","😠","😡","🤬","🤯","😳","🥵","🥶","😱","😨","😰","😥","😓","🤗","🤔","🤭","🤫","🤥","😶","😐","😑","😬","🙄","😯","😦","😧","😮","😲","🥱","😴","🤤","😪","😵","🤐","🥴","🤢","🤮","🤧","😷","🤒","🤕","🤑","🤠","😈","👿","👹","👺","🤡","💩","👻","💀","☠️","👽","👾","🤖","🎃",
             "👋","🤚","🖐️","✋","🖖","👌","🤌","🤏","✌️","🤞","🤟","🤘","🤙","👈","👉","👆","🖕","👇","☝️","👍","👎","✊","👊","🤛","🤜","👏","🙌","👐","🤲","🤝","🙏","✍️","💅","🤳","💪","🦾","🦵","🦿","🦶","👂","🦻","👀","👁️","👄",
             "❤️","🧡","💛","💚","💙","💜","🖤","🤍","🤎","💔","❣️","💕","💞","💓","💗","💖","💘","💝","💟","🔒","🔑","⚡","🔥","💥","✨","🌟","💫","🎈","🎉","🎊","🎁","🏆","👑","💎","💣","⚔️","🛡️","🚀"
         ];
@@ -940,11 +971,11 @@ flex-direction: column;
                 document.getElementById('terms-modal').style.display = 'flex';
             }
 
-            // Гарантированное скрытие лоадера
             setTimeout(() => {
                 if (savedUser) {
                     try {
                         currentUser = JSON.parse(savedUser);
+                        currentUser.id = String(currentUser.id);
                         startAppSession();
                     } catch(e) {
                         localStorage.removeItem('aerochat_sb_user');
@@ -994,26 +1025,28 @@ flex-direction: column;
 
             try {
                 activeRealtimeChannel = supabaseClient
-                    .channel('realtime_messages_' + currentUser.id)
+.channel('realtime_messages_' + currentUser.id)
                     .on('postgres_changes', {
                         event: 'INSERT',
                         schema: 'public',
                         table: 'messages'
                     }, payload => {
                         const newMsg = payload.new;
-                        if (newMsg && newMsg.sender !== currentUser.id) {
-                            const isForMe = newMsg.chat_key && newMsg.chat_key.includes(currentUser.id);
+                        if (newMsg && String(newMsg.sender) !== String(currentUser.id)) {
+                            const isForMe = (newMsg.chat_key === 'GLOBAL_CHAT') || (newMsg.chat_key && newMsg.chat_key.includes(String(currentUser.id)));
                             if (isForMe) {
-const senderProfile = allProfiles[newMsg.sender] || { name: 'Собеседник' };
+                                const senderProfile = allProfiles[newMsg.sender] || { name: 'Собеседник' };
                                 let preview = newMsg.text || '';
                                 if (preview.startsWith('IMG_URL:')) preview = '📷 Фотография';
                                 else if (preview.startsWith('VOICE_URL:')) preview = '🎤 Голосовое сообщение';
 
-                                showSecureAlert(`Новое сообщение от ${senderProfile.name}`, preview);
-                                showSystemNotification(`Сообщение от ${senderProfile.name}`, preview);
+                                const chatTitle = newMsg.chat_key === 'GLOBAL_CHAT' ? `Глобальный чат (${senderProfile.name})` : senderProfile.name;
 
-                                if (activeChatId === newMsg.sender) {
-                                    loadMessagesSilent(activeChatId, true);
+                                showSecureAlert(`Новое сообщение: ${chatTitle}`, preview);
+                                showSystemNotification(`Сообщение: ${chatTitle}`, preview);
+
+                                if (String(activeChatId) === String(newMsg.sender) || (activeChatId === GLOBAL_CHAT_ID && newMsg.chat_key === 'GLOBAL_CHAT')) {
+                                    loadMessagesSilent(activeChatId, false);
                                 }
                             }
                         }
@@ -1067,7 +1100,7 @@ const senderProfile = allProfiles[newMsg.sender] || { name: 'Собеседни�
             if ("Notification" in window) {
                 Notification.requestPermission().then(permission => {
                     if (permission === "granted") {
-                        showSystemNotification("AeroChat", "Уведомления успешно подключены!");
+showSystemNotification("AeroChat", "Уведомления успешно подключены!");
                     }
                 });
             }
@@ -1085,7 +1118,7 @@ const senderProfile = allProfiles[newMsg.sender] || { name: 'Собеседни�
                         reg.showNotification(title, {
                             body: bodyText,
                             icon: 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png',
-vibrate: [200, 100, 200]
+                            vibrate: [200, 100, 200]
                         });
                     });
                 } else {
@@ -1167,12 +1200,12 @@ vibrate: [200, 100, 200]
             const name = document.getElementById('auth-name').value.trim();
             
             if (!/^\d{1,6}$/.test(id)) { 
-                alert('ID должен состоять только из цифр (до 6 цифр).'); 
-                return; 
+                alert('ID должен состоять только из цифр (до 6 цифр).');
+return; 
             }
             if (!name) { alert('Введите ваше имя.'); return; }
 
-            currentUser = { id, name, avatar: "" };
+            currentUser = { id: String(id), name, avatar: "" };
 
             showTransitionLoader("Вход в аккаунт...", async () => {
                 try {
@@ -1186,7 +1219,8 @@ vibrate: [200, 100, 200]
                         }
                         if (existing.avatar) currentUser.avatar = existing.avatar;
                     }
-await supabaseClient.from('profiles').upsert({ id: id, name: name, avatar: currentUser.avatar || "", last_seen: new Date().toISOString() });
+
+                    await supabaseClient.from('profiles').upsert({ id: id, name: name, avatar: currentUser.avatar || "", last_seen: new Date().toISOString() });
                 } catch(e) {
                     console.error(e);
                 }
@@ -1257,28 +1291,29 @@ await supabaseClient.from('profiles').upsert({ id: id, name: name, avatar: curre
             fetchAllData(true);
             
             if (backgroundSyncInterval) clearInterval(backgroundSyncInterval);
-            backgroundSyncInterval = setInterval(() => { fetchAllData(false); }, 2500);
+            backgroundSyncInterval = setInterval(() => { fetchAllData(false); }, 60000);
         }
 
         async function fetchAllData(isInitial = false) {
-            try {
+try {
                 const { data: profilesData } = await supabaseClient.from('profiles').select('*');
                 if (profilesData) {
                     allProfiles = {};
-                    profilesData.forEach(p => { allProfiles[p.id] = p; });
+                    profilesData.forEach(p => { allProfiles[String(p.id)] = p; });
+                    allProfiles[GLOBAL_CHAT_ID] = GLOBAL_CHAT_PROFILE;
                     
-                    const me = allProfiles[currentUser.id];
+                    const me = allProfiles[String(currentUser.id)];
                     if (me) {
                         currentUser.name = me.name;
                         currentUser.avatar = me.avatar || "";
                         if (me.contacts) {
-                            contacts = me.contacts;
+                            contacts = me.contacts.map(c => String(c));
                             localStorage.setItem('aerochat_cached_contacts', JSON.stringify(contacts));
                         }
                         updateMyUI();
                     }
                     renderContactsList();
-if (activeChatId) updateActiveChatStatus(activeChatId);
+                    if (activeChatId) updateActiveChatStatus(activeChatId);
                 }
 
                 checkBackgroundNotifications();
@@ -1292,10 +1327,12 @@ if (activeChatId) updateActiveChatStatus(activeChatId);
         }
 
         async function checkBackgroundNotifications() {
-            if (!currentUser || contacts.length === 0) return;
+            if (!currentUser) return;
 
             try {
                 const chatKeys = contacts.map(cId => getChatKey(currentUser.id, cId));
+                chatKeys.push('GLOBAL_CHAT');
+
                 const { data: msgs } = await supabaseClient
                     .from('messages')
                     .select('*')
@@ -1305,19 +1342,20 @@ if (activeChatId) updateActiveChatStatus(activeChatId);
 
                 if (msgs) {
                     msgs.forEach(msg => {
-                        if (msg.sender !== currentUser.id && !knownMessageIds.has(msg.id)) {
+                        if (String(msg.sender) !== String(currentUser.id) && !knownMessageIds.has(msg.id)) {
                             knownMessageIds.add(msg.id);
 
-                            const senderProfile = allProfiles[msg.sender] || { name: 'Друг' };
-                            const isChatOpen = (activeChatId === msg.sender && document.visibilityState === 'visible');
+                            const senderProfile = allProfiles[String(msg.sender)] || { name: 'Друг' };
+                            const isChatOpen = (String(activeChatId) === String(msg.sender) || (activeChatId === GLOBAL_CHAT_ID && msg.chat_key === 'GLOBAL_CHAT')) && document.visibilityState === 'visible';
 
                             if (!isChatOpen && knownMessageIds.size > msgs.length) { 
                                 let textPreview = msg.text || '';
                                 if (textPreview.startsWith('IMG_URL:')) textPreview = '📷 Фотография';
                                 else if (textPreview.startsWith('VOICE_URL:')) textPreview = '🎤 Голосовое сообщение';
 
-                                showSecureAlert(`Сообщение от ${senderProfile.name}`, textPreview);
-                                showSystemNotification(`Сообщение от ${senderProfile.name}`, textPreview);
+                                const title = msg.chat_key === 'GLOBAL_CHAT' ? `Глобальный чат (${senderProfile.name})` : senderProfile.name;
+                                showSecureAlert(`Сообщение: ${title}`, textPreview);
+                                showSystemNotification(`Сообщение: ${title}`, textPreview);
                             }
                         } else {
                             knownMessageIds.add(msg.id);
@@ -1346,7 +1384,7 @@ if (activeChatId) updateActiveChatStatus(activeChatId);
         }
 
         function logout() {
-            if (confirm("Вы действительно хотите выйти?")) {
+if (confirm("Вы действительно хотите выйти?")) {
                 if (heartbeatInterval) clearInterval(heartbeatInterval);
                 if (backgroundSyncInterval) clearInterval(backgroundSyncInterval);
                 if (activeRealtimeChannel) supabaseClient.removeChannel(activeRealtimeChannel);
@@ -1371,7 +1409,7 @@ if (activeChatId) updateActiveChatStatus(activeChatId);
             } else {
                 img.style.display = 'none';
                 fallback.style.display = 'flex';
-fallback.innerText = currentUser.name ? currentUser.name.charAt(0).toUpperCase() : '?';
+                fallback.innerText = currentUser.name ? currentUser.name.charAt(0).toUpperCase() : '?';
             }
         }
 
@@ -1392,7 +1430,7 @@ fallback.innerText = currentUser.name ? currentUser.name.charAt(0).toUpperCase()
 
         async function addContact() {
             const searchId = document.getElementById('search-input').value.trim();
-            if (!searchId || searchId === currentUser.id) return;
+            if (!searchId || searchId === String(currentUser.id)) return;
             
             showTransitionLoader("Поиск...", async () => {
                 const { data } = await supabaseClient.from('profiles').select('*').eq('id', searchId).maybeSingle();
@@ -1415,14 +1453,26 @@ fallback.innerText = currentUser.name ? currentUser.name.charAt(0).toUpperCase()
 
         function renderContactsList() {
             const list = document.getElementById('contact-list');
-            if (contacts.length === 0) {
-                list.innerHTML = '<p style="padding: 20px; color: var(--text-dim); text-align: center; font-size: 12px;">Список контактов пуст</p>';
-                return;
-            }
-
             list.innerHTML = '';
+
+            const globalDiv = document.createElement('div');
+            globalDiv.className = 'contact-item global-item';
+            globalDiv.onclick = () => { openChat(GLOBAL_CHAT_ID); };
+            globalDiv.innerHTML = `
+                <div style="position: relative;">
+                    <div class="avatar" style="width: 38px; height: 38px; font-size: 18px; border-color: var(--accent);">🌐</div>
+                    <span class="status-dot online" style="position: absolute; bottom: 0; right: 0;"></span>
+                </div>
+                <div style="overflow: hidden; flex: 1;">
+                    <h4 style="color: var(--accent); font-size: 13px; font-weight: 600;">Глобальный чат</h4>
+                    <p style="color: var(--text-dim); font-size: 10px;">Чат для всех пользователей</p>
+                </div>
+            `;
+            list.appendChild(globalDiv);
+
             contacts.forEach(contactId => {
-                const profile = allProfiles[contactId] || { name: contactId, avatar: "", last_seen: null };
+if (contactId === GLOBAL_CHAT_ID) return;
+                const profile = allProfiles[String(contactId)] || { name: contactId, avatar: "", last_seen: null };
                 const online = isUserOnline(profile.last_seen);
                 
                 const div = document.createElement('div');
@@ -1447,19 +1497,40 @@ fallback.innerText = currentUser.name ? currentUser.name.charAt(0).toUpperCase()
             });
         }
 
-        function getChatKey(id1, id2) { return [id1, id2].sort().join('_'); }
+        function getChatKey(id1, id2) { 
+            if (id1 === GLOBAL_CHAT_ID || id2 === GLOBAL_CHAT_ID) return 'GLOBAL_CHAT';
+            return [String(id1), String(id2)].sort().join('_'); 
+        }
 
         function openChat(contactId) {
-            activeChatId = contactId;
-            updateActiveChatStatus(contactId);
-document.getElementById('empty-chat').style.display = 'none';
+            activeChatId = String(contactId);
+            renderedMessageState = {}; 
+            updateActiveChatStatus(activeChatId);
+
+            document.getElementById('empty-chat').style.display = 'none';
             document.getElementById('active-chat').style.display = 'flex';
             document.getElementById('app-container').classList.add('show-chat');
-            loadMessagesSilent(contactId, true);
+            
+            const container = document.getElementById('messages-container');
+            container.innerHTML = '';
+            loadMessagesSilent(activeChatId, true);
         }
 
         function updateActiveChatStatus(contactId) {
-            const profile = allProfiles[contactId] || { name: contactId, avatar: "", last_seen: null };
+            if (contactId === GLOBAL_CHAT_ID) {
+                document.getElementById('current-chat-name').innerText = '🌐 Глобальный чат';
+                document.getElementById('current-chat-status').innerText = 'Общий канал общения';
+                document.getElementById('chat-status-dot').className = 'status-dot online';
+
+                const img = document.getElementById('chat-avatar');
+                const fallback = document.getElementById('chat-avatar-fallback');
+                img.style.display = 'none';
+                fallback.style.display = 'flex';
+                fallback.innerText = '🌐';
+                return;
+            }
+
+            const profile = allProfiles[String(contactId)] || { name: contactId, avatar: "", last_seen: null };
             const online = isUserOnline(profile.last_seen);
 
             document.getElementById('current-chat-name').innerText = profile.name;
@@ -1474,7 +1545,7 @@ document.getElementById('empty-chat').style.display = 'none';
                 img.style.display = 'block';
                 fallback.style.display = 'none';
             } else {
-                img.style.display = 'none';
+img.style.display = 'none';
                 fallback.style.display = 'flex';
                 fallback.innerText = profile.name ? profile.name.charAt(0).toUpperCase() : '?';
             }
@@ -1482,6 +1553,7 @@ document.getElementById('empty-chat').style.display = 'none';
 
         function closeChat() {
             activeChatId = null;
+            renderedMessageState = {};
             document.getElementById('empty-chat').style.display = 'flex';
             document.getElementById('active-chat').style.display = 'none';
             document.getElementById('app-container').classList.remove('show-chat');
@@ -1493,39 +1565,77 @@ document.getElementById('empty-chat').style.display = 'none';
             const container = document.getElementById('messages-container');
 
             try {
-                await supabaseClient
-                    .from('messages')
-                    .update({ is_read: true })
-                    .eq('chat_key', chatKey)
-                    .neq('sender', currentUser.id)
-                    .eq('is_read', false);
+                if (chatKey !== 'GLOBAL_CHAT') {
+                    await supabaseClient
+                        .from('messages')
+                        .update({ is_read: true })
+                        .eq('chat_key', chatKey)
+                        .neq('sender', currentUser.id)
+                        .eq('is_read', false);
+                }
 
-                const { data } = await supabaseClient
+                const { data, error } = await supabaseClient
                     .from('messages')
                     .select('*')
                     .eq('chat_key', chatKey)
                     .order('timestamp', { ascending: true });
 
+                if (error) {
+                    console.error('Ошибка загрузки сообщений:', error);
+                    return;
+                }
+
                 if (data) {
-                    const wasScrolled = container.scrollHeight - container.scrollTop <= container.clientHeight + 80;
-                    container.innerHTML = '';
+                    const currentIds = new Set(data.map(m => m.id));
                     
+                    Object.keys(renderedMessageState).forEach(mId => {
+                        if (!currentIds.has(mId)) {
+                            const elem = document.getElementById('msg_node_' + mId);
+                            if (elem) elem.remove();
+                            delete renderedMessageState[mId];
+                        }
+                    });
+
                     if (data.length === 0) {
-                        container.innerHTML = '<div style="text-align:center; color:var(--text-dim); font-size:12px;">Нет сообщений. Напишите первым!</div>';
+                        container.innerHTML = '<div id="no-msgs-placeholder" style="text-align:center; color:var(--text-dim); font-size:12px;">Нет сообщений. Напишите первым!</div>';
                     } else {
-                        data.forEach(msg => appendMessageDOM(msg));
+                        const placeholder = document.getElementById('no-msgs-placeholder');
+                        if (placeholder) placeholder.remove();
+
+                        const wasScrolled = container.scrollHeight - container.scrollTop <= container.clientHeight + 80;
+
+                        data.forEach(msg => {
+                            const stateKey = msg.id;
+                            const existingElem = document.getElementById('msg_node_' + msg.id);
+
+                            if (!existingElem) {
+                                appendMessageDOM(msg);
+                                renderedMessageState[stateKey] = msg.is_read || false;
+                            } else if (renderedMessageState[stateKey] !== (msg.is_read || false)) {
+                                const ticksElem = existingElem.querySelector('.msg-ticks');
+                                if (ticksElem) {
+                                    ticksElem.className = `msg-ticks ${msg.is_read ? 'read' : ''}`;
+                                    ticksElem.innerText = msg.is_read ? '✓✓' : '✓';
+                                }
+                                renderedMessageState[stateKey] = msg.is_read || false;
+                            }
+                        });
+
                         if (forceScroll || wasScrolled) container.scrollTop = container.scrollHeight;
                     }
                 }
-            } catch(e){}
+            } catch(e){
+                console.error('Исключение при чтении сообщений:', e);
+            }
         }
 
         function appendMessageDOM(msg) {
             const container = document.getElementById('messages-container');
-            const timeStr = msg.timestamp ? new Date(msg.timestamp).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) : new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-            const isMine = msg.sender === currentUser.id;
+const timeStr = msg.timestamp ? new Date(msg.timestamp).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) : new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            const isMine = String(msg.sender) === String(currentUser.id);
             
             const div = document.createElement('div');
+            div.id = 'msg_node_' + msg.id;
             div.className = `message ${isMine ? 'out' : 'in'}`;
             
             const msgText = (msg.text && typeof msg.text === 'string') ? msg.text : '';
@@ -1534,7 +1644,7 @@ document.getElementById('empty-chat').style.display = 'none';
             
             let fileUrl = '';
             if (isPhoto) {
-fileUrl = msgText.replace('IMG_URL:', '').trim();
+                fileUrl = msgText.replace('IMG_URL:', '').trim();
             } else if (isVoice) {
                 fileUrl = msgText.replace('VOICE_URL:', '').trim();
             }
@@ -1545,12 +1655,30 @@ fileUrl = msgText.replace('IMG_URL:', '').trim();
             };
 
             let ticksHtml = '';
-            if (isMine) {
+            if (isMine && activeChatId !== GLOBAL_CHAT_ID) {
                 ticksHtml = `<span class="msg-ticks ${msg.is_read ? 'read' : ''}">${msg.is_read ? '✓✓' : '✓'}</span>`;
+            }
+
+            const senderProfile = allProfiles[String(msg.sender)] || { name: 'ID ' + msg.sender, avatar: '' };
+            const senderNameHtml = escapeHTML(senderProfile.name);
+            const hasSenderAvatar = senderProfile.avatar && senderProfile.avatar.trim() !== "";
+            
+            let senderHeaderHtml = '';
+            if (!isMine || activeChatId === GLOBAL_CHAT_ID) {
+                senderHeaderHtml = `
+                    <div class="msg-sender-info">
+                        ${hasSenderAvatar 
+                            ? `<img class="msg-sender-avatar" src="${senderProfile.avatar}" onerror="this.style.display='none'">` 
+                            : `<div class="msg-sender-avatar" style="display:flex; justify-content:center; align-items:center; background:#1e232d; font-size:9px;">${senderNameHtml.charAt(0).toUpperCase()}</div>`
+                        }
+                        <span>${senderNameHtml}</span>
+                    </div>
+                `;
             }
 
             if (isPhoto) {
                 div.innerHTML = `
+                    ${senderHeaderHtml}
                     <img src="${fileUrl}" style="max-width: 100%; max-height: 250px; border-radius: 8px; display: block; margin-bottom: 4px;" loading="lazy">
                     <div class="msg-meta">
                         <span>${timeStr}</span>
@@ -1559,8 +1687,9 @@ fileUrl = msgText.replace('IMG_URL:', '').trim();
                 `;
             } else if (isVoice) {
                 div.innerHTML = `
+                    ${senderHeaderHtml}
                     <div class="audio-msg-container">
-                        <audio controls src="${fileUrl}"></audio>
+                        <audio controls preload="metadata" src="${fileUrl}"></audio>
                     </div>
                     <div class="msg-meta">
                         <span>${timeStr}</span>
@@ -1569,6 +1698,7 @@ fileUrl = msgText.replace('IMG_URL:', '').trim();
                 `;
             } else {
                 div.innerHTML = `
+                    ${senderHeaderHtml}
                     <div>${escapeHTML(msgText)}</div>
                     <div class="msg-meta">
                         <span>${timeStr}</span>
@@ -1588,7 +1718,7 @@ fileUrl = msgText.replace('IMG_URL:', '').trim();
                 const saveBtn = document.createElement('div');
                 saveBtn.className = 'ctx-item';
                 saveBtn.innerHTML = '💾 Сохранить файл';
-                saveBtn.onclick = () => { downloadFile(fileUrl); closeContextMenu(); };
+saveBtn.onclick = () => { downloadFile(fileUrl); closeContextMenu(); };
                 menu.appendChild(saveBtn);
             } else {
                 const copyBtn = document.createElement('div');
@@ -1635,8 +1765,25 @@ fileUrl = msgText.replace('IMG_URL:', '').trim();
 
         function addEmoji(emoji) {
             const input = document.getElementById('message-input');
-input.value += emoji;
+            input.value += emoji;
             input.focus();
+        }
+
+        async function postMessagePayload(payload) {
+            try {
+                let { error } = await supabaseClient.from('messages').insert([payload]);
+                if (error) {
+                    console.warn('Ошибка при отправке с полным payload, пробуем без is_read:', error);
+                    delete payload.is_read;
+                    const res = await supabaseClient.from('messages').insert([payload]);
+                    if (res.error) throw res.error;
+                }
+                return true;
+            } catch (err) {
+                console.error('Сбой отправки сообщения:', err);
+                alert('Ошибка при отправке сообщения: ' + (err.message || 'Проверьте соединение'));
+                return false;
+            }
         }
 
         async function sendMessage() {
@@ -1648,15 +1795,18 @@ input.value += emoji;
             toggleEmojiPicker(false);
 
             const chatKey = getChatKey(currentUser.id, activeChatId);
-            await supabaseClient.from('messages').insert({
+            const payload = {
                 chat_key: chatKey,
                 sender: currentUser.id,
                 text: text,
                 timestamp: new Date().toISOString(),
                 is_read: false
-            });
+            };
 
-            loadMessagesSilent(activeChatId, true);
+            const success = await postMessagePayload(payload);
+            if (success) {
+                loadMessagesSilent(activeChatId, true);
+            }
         }
 
         async function sendPhotoMessage(e) {
@@ -1667,16 +1817,18 @@ input.value += emoji;
             reader.onload = async (evt) => {
                 const base64Url = evt.target.result;
                 const chatKey = getChatKey(currentUser.id, activeChatId);
-
-                await supabaseClient.from('messages').insert({
+                const payload = {
                     chat_key: chatKey,
                     sender: currentUser.id,
-                    text: 'IMG_URL:' + base64Url,
+text: 'IMG_URL:' + base64Url,
                     timestamp: new Date().toISOString(),
                     is_read: false
-                });
+                };
 
-                loadMessagesSilent(activeChatId, true);
+                const success = await postMessagePayload(payload);
+                if (success) {
+                    loadMessagesSilent(activeChatId, true);
+                }
             };
             reader.readAsDataURL(file);
         }
@@ -1686,40 +1838,64 @@ input.value += emoji;
 
             if (!isRecording) {
                 try {
-                    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-                    mediaRecorder = new MediaRecorder(stream);
+                    mediaStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+
+                    let options = {};
+                    if (MediaRecorder.isTypeSupported('audio/webm;codecs=opus')) options.mimeType = 'audio/webm;codecs=opus';
+                    else if (MediaRecorder.isTypeSupported('audio/webm')) options.mimeType = 'audio/webm';
+                    else if (MediaRecorder.isTypeSupported('audio/mp4')) options.mimeType = 'audio/mp4';
+                    else if (MediaRecorder.isTypeSupported('audio/ogg')) options.mimeType = 'audio/ogg';
+
+                    mediaRecorder = new MediaRecorder(mediaStream, options);
                     audioChunks = [];
 
-                    mediaRecorder.ondataavailable = (event) => { audioChunks.push(event.data); };
+                    mediaRecorder.ondataavailable = (event) => {
+                        if (event.data && event.data.size > 0) {
+                            audioChunks.push(event.data);
+                        }
+                    };
+
                     mediaRecorder.onstop = async () => {
-                        const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
+                        const mimeType = mediaRecorder.mimeType || 'audio/webm';
+                        const audioBlob = new Blob(audioChunks, { type: mimeType });
+                        
                         const reader = new FileReader();
                         reader.onloadend = async () => {
                             const base64Audio = reader.result;
                             if (activeChatId) {
                                 const chatKey = getChatKey(currentUser.id, activeChatId);
-                                await supabaseClient.from('messages').insert({
+                                const payload = {
                                     chat_key: chatKey,
                                     sender: currentUser.id,
                                     text: 'VOICE_URL:' + base64Audio,
                                     timestamp: new Date().toISOString(),
                                     is_read: false
-                                });
-                                loadMessagesSilent(activeChatId, true);
+                                };
+                                const success = await postMessagePayload(payload);
+                                if (success) {
+                                    loadMessagesSilent(activeChatId, true);
+                                }
                             }
                         };
                         reader.readAsDataURL(audioBlob);
-                        stream.getTracks().forEach(track => track.stop());
+
+                        if (mediaStream) {
+                            mediaStream.getTracks().forEach(track => track.stop());
+                            mediaStream = null;
+                        }
                     };
 
-                    mediaRecorder.start();
+                    mediaRecorder.start(200);
                     isRecording = true;
                     recordBtn.classList.add('btn-recording');
                 } catch (err) {
-                    alert('Не удалось получить доступ к микрофону!');
+                    console.error('Ошибка доступа к микрофону:', err);
+                    alert('Не удалось получить доступ к микрофону! Проверьте разрешения в браузере.');
                 }
             } else {
-                if (mediaRecorder) mediaRecorder.stop();
+                if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+                    mediaRecorder.stop();
+                }
                 isRecording = false;
                 recordBtn.classList.remove('btn-recording');
             }
@@ -1729,9 +1905,8 @@ input.value += emoji;
             document.getElementById('settings-name').value = currentUser.name;
             const preview = document.getElementById('settings-avatar-preview');
             const fallback = document.getElementById('settings-avatar-fallback');
-
-            if (currentUser.avatar && currentUser.avatar.trim() !== "") {
-preview.src = currentUser.avatar;
+if (currentUser.avatar && currentUser.avatar.trim() !== "") {
+                preview.src = currentUser.avatar;
                 preview.style.display = 'block';
                 fallback.style.display = 'none';
             } else {
@@ -1779,7 +1954,21 @@ preview.src = currentUser.avatar;
 
         function showFriendProfile() {
             if (!activeChatId) return;
-            const profile = allProfiles[activeChatId] || { name: activeChatId, avatar: "" };
+            
+            if (activeChatId === GLOBAL_CHAT_ID) {
+                document.getElementById('friend-modal-name').innerText = '🌐 Глобальный чат';
+                document.getElementById('friend-modal-id').innerText = 'GLOBAL';
+
+                const img = document.getElementById('friend-modal-avatar');
+                const fallback = document.getElementById('friend-modal-fallback');
+                img.style.display = 'none';
+                fallback.style.display = 'flex';
+                fallback.innerText = '🌐';
+                document.getElementById('friend-profile-modal').style.display = 'flex';
+                return;
+            }
+
+            const profile = allProfiles[String(activeChatId)] || { name: activeChatId, avatar: "" };
 
             document.getElementById('friend-modal-name').innerText = profile.name;
             document.getElementById('friend-modal-id').innerText = activeChatId;
